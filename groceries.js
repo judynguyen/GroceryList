@@ -1,5 +1,14 @@
 var myList = [];
 
+function saveList(){
+  var myListString = myList.toString();
+  setCookie(mls, string, 100);
+}
+
+function clearList(){
+
+}
+
 function addItem(){
   var input = document.getElementById("newItem").value;
   var indexNum = myList.indexOf(input);
