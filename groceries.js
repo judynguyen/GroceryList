@@ -4,8 +4,8 @@ var myListString;
 function saveList(){
   myListString = myList.toString();
   setCookie("mls", myListString, 100);
-  console.log(myListString);
-  console.log(getCookie("mls"));
+  console.log("this is the list of strings: " + myListString);
+  console.log("this is the cookie: " + getCookie("mls"));
 }
 
 function clearList(){
