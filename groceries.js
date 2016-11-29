@@ -1,12 +1,20 @@
 var myList = [];
+var myListString;
 
 function saveList(){
-  var myListString = myList.toString();
-  setCookie(mls, string, 100);
+  myListString = myList.toString();
+  setCookie("mls", myListString, 100);
+  console.log(myListString);
+  console.log(getCookie("mls"));
 }
 
 function clearList(){
-
+  var listItems = document.getElementById("listDisplay");
+  listItems.innerHTML = "";
+  myList = [];
+  myListString="";
+  setCookie("mls", myListString, 100);
+  console.log(myList);
 }
 
 function addItem(){
