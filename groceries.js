@@ -1,6 +1,29 @@
 var myList = [];
 var myListString;
 
+function displayItem(input){
+  var indexNum = myList.indexOf(input);
+  if(indexNum==-1){
+      myList.push(input);
+      console.log(myList);
+      var list = document.getElementById("listDisplay");
+      var item = document.createElement("li");
+      var btnClose = document.createElement("button");
+      btnClose.addEventListener("click", removeParentListItem);
+      btnClose.classList.add("btn");
+      btnClose.classList.add("btn-danger");
+      btnClose.classList.add("btn-xs");
+      var iconClose = document.createElement("span");
+      iconClose.classList.add("glyphicon");
+      iconClose.classList.add("glyphicon-remove");
+      btnClose.appendChild(iconClose);
+      var itemName = document.createTextNode(input);
+      item.appendChild(itemName);
+      item.appendChild(btnClose);
+      list.appendChild(item);
+}
+}
+
 function saveList(){
   myListString = myList.toString();
   setCookie("mls", myListString, 100);
@@ -12,33 +35,14 @@ function clearList(){
   var listItems = document.getElementById("listDisplay");
   listItems.innerHTML = "";
   myList = [];
-  myListString="";
-  setCookie("mls", myListString, 100);
+  //myListString="";
+  //setCookie("mls", myListString, 100);
   console.log(myList);
 }
 
 function addItem(){
   var input = document.getElementById("newItem").value;
-  var indexNum = myList.indexOf(input);
-    if(indexNum==-1){
-        myList.push(input);
-        console.log(myList);
-        var list = document.getElementById("listDisplay");
-        var item = document.createElement("li");
-        var btnClose = document.createElement("button");
-        btnClose.addEventListener("click", removeParentListItem);
-        btnClose.classList.add("btn");
-        btnClose.classList.add("btn-danger");
-        btnClose.classList.add("btn-xs");
-        var iconClose = document.createElement("span");
-        iconClose.classList.add("glyphicon");
-        iconClose.classList.add("glyphicon-remove");
-        btnClose.appendChild(iconClose);
-        var itemName = document.createTextNode(input);
-        item.appendChild(itemName);
-        item.appendChild(btnClose);
-        list.appendChild(item);
-  }
+  displayItem(input);
   document.getElementById("newItem").value = "";
 }
 
