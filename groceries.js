@@ -29,7 +29,7 @@ function loadCookieList(){
   var cookieList = getCookie("mls");
   var arrayCookie = cookieList.split(",");
   console.log(arrayCookie);
-  if(arrayCookie.length>0){
+  if(!arrayCookie.length=0){
   for(var i=0; i<arrayCookie.length;i++){
     var arrayIndex = arrayCookie[i];
     console.log("index at "+ i + " = " + arrayIndex);
