@@ -47,8 +47,7 @@ function clearList(){
   var listItems = document.getElementById("listDisplay");
   listItems.innerHTML = "";
   myList = [];
-  //myListString="";
-  //setCookie("mls", myListString, 100);
+
   console.log(myList);
 }
 
