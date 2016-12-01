@@ -1,3 +1,4 @@
+window.onload = loadCookieList;
 var myList = [];
 var myListString;
 
@@ -22,6 +23,17 @@ function displayItem(input){
       item.appendChild(btnClose);
       list.appendChild(item);
 }
+}
+
+function loadCookieList(){
+  var cookieList = getCookie("mls");
+  var arrayCookie = cookieList.split(",");
+  console.log(arrayCookie);
+  for(var i=0; i<arrayCookie.length;i++){
+    var arrayIndex = arrayCookie[i];
+    console.log("index at "+ i + " = " + arrayIndex);
+    displayItem(arrayIndex);
+  }
 }
 
 function saveList(){
